@@ -10,9 +10,10 @@ export default function Button() {
 
   return (
     <div className="w-[200px] flex flex-wrap">
-      {nums.map((e) => {
+      {nums.map((e, index) => {
         return (
           <button
+            key={index}
             className="w-[58px] h-12 bg-[#777677] text-[#FFFFFF] text-lg font-normal border-[0.5px] border-[#464647] active:bg-white"
             onClick={() => changeScreenVal(e)}
           >
