@@ -10,13 +10,9 @@ export default function TopBtn() {
     setPrevDisplay,
     plusMinus,
     setPlusMinus,
-    perce,
     setPerce,
-    ofperce,
     setOfperce,
-    storage,
     setStorage,
-    befPerce,
     setBefPerce,
   } = useNumberData();
 

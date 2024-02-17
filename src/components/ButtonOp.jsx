@@ -1,6 +1,5 @@
 import { OrBtn } from "@/utils/dummyData";
 import { useNumberData } from "@/context/NumberContext";
-import { useState } from "react";
 
 export default function ButtonOp() {
   const {
@@ -11,11 +10,8 @@ export default function ButtonOp() {
     todoOp,
     setTodoOp,
     perce,
-    setPerce,
     ofperce,
-    setOfperce,
     storage,
-    setStorage,
   } = useNumberData();
 
   function changeTodoOp(e) {
