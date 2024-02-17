@@ -71,12 +71,12 @@ export default function ButtonOp() {
     }
   }
 
-  console.log("prevDisplay:", prevDisplay);
-  console.log("currentDisplay:", currentDisplay);
-  console.log("perce:", perce);
-  console.log("ofperce:", ofperce);
-  console.log("todoOp:", todoOp);
-  console.log("storage:", storage);
+  // console.log("prevDisplay:", prevDisplay);
+  // console.log("currentDisplay:", currentDisplay);
+  // console.log("perce:", perce);
+  // console.log("ofperce:", ofperce);
+  // console.log("todoOp:", todoOp);
+  // console.log("storage:", storage);
 
   return (
     <div className="flex flex-col relative right-[27px]">

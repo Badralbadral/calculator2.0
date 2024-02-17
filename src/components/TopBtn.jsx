@@ -1,4 +1,3 @@
-import { topBtn } from "@/utils/dummyData";
 import { useNumberData } from "@/context/NumberContext";
 
 export default function TopBtn() {
@@ -13,12 +12,10 @@ export default function TopBtn() {
     setPerce,
     setOfperce,
     setStorage,
-    setBefPerce,
   } = useNumberData();
 
   function changeTodoOp() {
     if (currentDisplay > "") {
-      setBefPerce("%%");
       setStorage("%");
       setOfperce((prevDisplay * currentDisplay) / 100);
       setCurrentdisplay(currentDisplay + "%");
