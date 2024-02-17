@@ -19,11 +19,10 @@ export default function ButtonOp() {
   } = useNumberData();
 
   function changeTodoOp(e) {
-    if (currentDisplay === "") {
-    } else {
+    if (currentDisplay > "") {
       setTodoOp(e);
+      setPrevDisplay(currentDisplay);
     }
-    setPrevDisplay(currentDisplay);
     setCurrentdisplay("");
   }
 
@@ -31,10 +30,23 @@ export default function ButtonOp() {
     if (prevDisplay === "0") {
       const result = Number(perce) / 100 + "";
       setCurrentdisplay(result);
-    } else {
+    } else if (storage == "%" && ofperce > "") {
       if (todoOp == "+") {
-        const result =
-          Number(prevDisplay) + (Number(ofperce) + Number(currentDisplay)) + "";
+        const result = Number(prevDisplay) + Number(ofperce) + "";
+        setCurrentdisplay(~~result);
+      } else if (todoOp == "-") {
+        const result = Number(prevDisplay) - Number(ofperce) + "";
+        setCurrentdisplay(~~result);
+      } else if (todoOp == "×") {
+        const result = Number(prevDisplay) * Number(ofperce) + "";
+        setCurrentdisplay(~~result);
+      } else if (todoOp == "÷") {
+        const result = Number(prevDisplay) / Number(ofperce) + "";
+        setCurrentdisplay(~~result);
+      }
+    } else if (perce == "") {
+      if (todoOp == "+") {
+        const result = Number(prevDisplay) + Number(currentDisplay) + "";
         setCurrentdisplay(result);
       } else if (todoOp == "-") {
         const result = Number(prevDisplay) - Number(currentDisplay) + "";
@@ -46,15 +58,29 @@ export default function ButtonOp() {
         const result = Number(prevDisplay) / Number(currentDisplay) + "";
         setCurrentdisplay(result);
       }
+    } else if (ofperce == "" && (todoOp == "+" || "-" || "×" || "÷")) {
+      if (todoOp == "+") {
+        const result = Number(perce / 100) + Number(currentDisplay) + "";
+        setCurrentdisplay(result);
+      } else if (todoOp == "-") {
+        const result = Number(perce / 100) - Number(currentDisplay) + "";
+        setCurrentdisplay(result);
+      } else if (todoOp == "×") {
+        const result = Number(perce / 100) * Number(currentDisplay) + "";
+        setCurrentdisplay(result);
+      } else if (todoOp == "÷") {
+        const result = Number(perce / 100) / Number(currentDisplay) + "";
+        setCurrentdisplay(result);
+      }
     }
-    // (base * percentage) / 100;
   }
 
   console.log("prevDisplay:", prevDisplay);
   console.log("currentDisplay:", currentDisplay);
   console.log("perce:", perce);
   console.log("ofperce:", ofperce);
-  console.log("🚀 ~ equalHandler ~ todoOp:", todoOp);
+  console.log("todoOp:", todoOp);
+  console.log("storage:", storage);
 
   return (
     <div className="flex flex-col relative right-[27px]">

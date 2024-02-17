@@ -10,7 +10,8 @@ export function NumberProvider({ children }) {
   const [plusMinus, setPlusMinus] = useState("");
   const [perce, setPerce] = useState("");
   const [ofperce, setOfperce] = useState("");
-  const [storage, setStorage] = useState();
+  const [storage, setStorage] = useState("");
+  const [befPerce, setBefPerce] = useState("");
 
   return (
     <NumberContext.Provider
@@ -29,6 +30,8 @@ export function NumberProvider({ children }) {
         setOfperce,
         storage,
         setStorage,
+        befPerce,
+        setBefPerce,
       }}
     >
       {children}

@@ -16,25 +16,29 @@ export default function TopBtn() {
     setOfperce,
     storage,
     setStorage,
+    befPerce,
+    setBefPerce,
   } = useNumberData();
 
-  function changeTodoOp(e) {
-    // const result = Number(perce) / 100 + "";
-    // setPrevDisplay(result);
-
-    setOfperce((prevDisplay * currentDisplay) / 100);
-    // setStorage(ofperce);
-    setCurrentdisplay(currentDisplay + "%");
-    setPerce(currentDisplay);
+  function changeTodoOp() {
+    if (currentDisplay > "") {
+      setBefPerce("%%");
+      setStorage("%");
+      setOfperce((prevDisplay * currentDisplay) / 100);
+      setCurrentdisplay(currentDisplay + "%");
+      setPerce(currentDisplay);
+    }
   }
 
   function aAndM() {
     setPlusMinus(currentDisplay);
-    setCurrentdisplay(
-      currentDisplay < 0
-        ? (currentDisplay / currentDisplay) * plusMinus
-        : `-${currentDisplay}`
-    );
+    if (currentDisplay > "") {
+      setCurrentdisplay(
+        currentDisplay < 0
+          ? (currentDisplay / currentDisplay) * plusMinus
+          : `-${currentDisplay}`
+      );
+    }
   }
 
   function clear() {
@@ -43,6 +47,7 @@ export default function TopBtn() {
     setPerce("");
     setTodoOp("");
     setOfperce("");
+    setStorage("");
   }
 
   return (
